@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>هدية عيد الحب 💝</title>
+
+<style>
+body{
+  margin:0;
+  overflow:hidden;
+  text-align:center;
+  font-family: Arial;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color:white;
+}
+
+h1{
+  margin-top:50px;
+}
+
+button{
+  font-size:20px;
+  padding:15px 30px;
+  margin:15px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+#poem, #surprise{
+  margin-top:30px;
+  font-size:22px;
+  background:rgba(0,0,0,0.4);
+  padding:20px;
+  border-radius:20px;
+  display:none;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* قلوب */
+.heart{
+  position:fixed;
+  top:-10px;
+  color:red;
+  font-size:20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform: translateY(100vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>اختر هديتك 💝</h1>
+
+<button onclick="showPoem('choco')">🍫 شوكولاته</button>
+<button onclick="showPoem('bear')">🧸 دبدوب</button>
+<button onclick="showPoem('rose')">🌹 وردة</button>
+
+<br>
+<button onclick="showSurprise()">🎁 اضغط للمفاجأة</button>
+
+<div id="poem"></div>
+<div id="surprise"></div>
+
+<script>
+
+function showPoem(type){
+  const poemBox = document.getElementById("poem");
+  const surpriseBox = document.getElementById("surprise");
+  surpriseBox.style.display = "none";
+
+  let text = "";
+
+  if(type === "choco"){
+    text = "أنتِ كالشوكولاته 🍫\nحلاوتك تذوب في قلبي\nوأعشق تفاصيلك كل يوم ❤️";
+  }
+
+  if(type === "bear"){
+    text = "كالدبدوب 🧸\nأريد حضنك طول العمر\nفيه الأمان وراحة القلب 💕";
+  }
+
+  if(type === "rose"){
+    text = "يا وردة قلبي 🌹\nأنتِ أجمل من كل الزهور\nوحبك يسكن أعماقي للأبد 💖";
+  }
+
+  poemBox.innerText = text;
+  poemBox.style.display = "block";
+}
+
+function showSurprise(){
+  const surpriseBox = document.getElementById("surprise");
+  const poemBox = document.getElementById("poem");
+  poemBox.style.display = "none";
+
+  surpriseBox.innerText = "المفاجأة هي... 💍\nأنا أحبك أكثر مما تتخيلين ❤️\nوكل يوم معك هو عيد حب جديد 💖";
+  surpriseBox.style.display = "block";
+}
+
+/* تأثير القلوب */
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}
+
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
