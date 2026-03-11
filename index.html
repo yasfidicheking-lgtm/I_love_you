@@ -1,136 +1,401 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>هدية عيد الحب 💝</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الحرفيين المغاربة</title>
+    <style>
+        :root {
+            --primary: #c0392b; /* لون الطين/الترارو */
+            --secondary: #2980b9; /* الأزرق المغربي */
+            --accent: #27ae60; /* الأخضر */
+            --bg: #f9f9f9;
+            --text: #333;
+        }
 
-<style>
-body{
-  margin:0;
-  overflow:hidden;
-  text-align:center;
-  font-family: Arial;
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
-  color:white;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+        }
 
-h1{
-  margin-top:50px;
-}
+        /* الهيدر */
+        header {
+            background-color: white;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-button{
-  font-size:20px;
-  padding:15px 30px;
-  margin:15px;
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
-  background:white;
-  color:#ff4d6d;
-  font-weight:bold;
-  transition:0.3s;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
 
-button:hover{
-  transform:scale(1.1);
-}
+        /* الحاويات */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            display: none; /* مخفي افتراضياً */
+        }
 
-#poem, #surprise{
-  margin-top:30px;
-  font-size:22px;
-  background:rgba(0,0,0,0.4);
-  padding:20px;
-  border-radius:20px;
-  display:none;
-  width:80%;
-  margin-left:auto;
-  margin-right:auto;
-}
+        .active-view {
+            display: block;
+        }
 
-/* قلوب */
-.heart{
-  position:fixed;
-  top:-10px;
-  color:red;
-  font-size:20px;
-  animation: fall linear forwards;
-}
+        /* الصفحة الرئيسية */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-@keyframes fall{
-  to{
-    transform: translateY(100vh);
-    opacity:0;
-  }
-}
-</style>
+        .hero h1 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .role-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-craftsman { background-color: var(--primary); }
+        .btn-user { background-color: var(--secondary); }
+        .btn:hover { transform: scale(1.05); opacity: 0.9; }
+
+        /* النماذج */
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* البطاقات */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card-header {
+            background: #eee;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-body { padding: 20px; }
+        .card-title { font-size: 1.2rem; color: var(--primary); margin: 0 0 10px 0; }
+        .card-info { font-size: 0.9rem; color: #666; margin-bottom: 5px; }
+        
+        .chat-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* نافذة الشات */
+        .chat-modal {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            border: 1px solid #ddd;
+        }
+
+        .chat-header {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f0f2f5;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            font-size: 0.9rem;
+        }
+
+        .msg-received { background: white; align-self: flex-start; border-bottom-right-radius: 2px; }
+        .msg-sent { background: var(--secondary); color: white; align-self: flex-end; margin-right: auto; border-bottom-left-radius: 2px; }
+
+        .chat-input {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            display: flex;
+        }
+        .chat-input input { border: none; outline: none; }
+        .chat-input button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* زر إغلاق الشات */
+        .close-chat { cursor: pointer; font-size: 1.2rem; }
+
+    </style>
 </head>
-
 <body>
 
-<h1>اختر هديتك 💝</h1>
+    <header>
+        <div class="logo">🇲🇦 الحرف المغربي</div>
+        <button onclick="showHome()" style="background:none; border:none; cursor:pointer; color:var(--secondary);">الرئيسية</button>
+    </header>
 
-<button onclick="showPoem('choco')">🍫 شوكولاته</button>
-<button onclick="showPoem('bear')">🧸 دبدوب</button>
-<button onclick="showPoem('rose')">🌹 وردة</button>
+    <!-- 1. الصفحة الرئيسية -->
+    <div id="home-view" class="container active-view">
+        <div class="hero">
+            <h1>أهلاً بك في منصة الحرفيين</h1>
+            <p>اختر دورك لتبدأ التجربة</p>
+            <div class="role-buttons">
+                <button class="btn btn-craftsman" onclick="showView('craftsman-view')">أنا حرفي (سجل عملي)</button>
+                <button class="btn btn-user" onclick="showView('search-view')">أنا زبون (ابحث عن خدمة)</button>
+            </div>
+        </div>
+    </div>
 
-<br>
-<button onclick="showSurprise()">🎁 اضغط للمفاجأة</button>
+    <!-- 2. نموذج الحرفي -->
+    <div id="craftsman-view" class="container">
+        <div class="form-box">
+            <h2 style="text-align: center; color: var(--primary);">سجل كحرفي</h2>
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" id="c-name" placeholder="مثال: محمد العبدلاوي">
+            </div>
+            <div class="form-group">
+                <label>المهنة</label>
+                <select id="c-job">
+                    <option value="نجار">نجار</option>
+                    <option value="حداد">حداد</option>
+                    <option value="فخار">فخار</option>
+                    <option value="سجاد">سجاد</option>
+                    <option value="نحاس">نحاس</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>المدينة</label>
+                <input type="text" id="c-city" placeholder="مثال: مراكش">
+            </div>
+            <div class="form-group">
+                <label>رقم الهاتف</label>
+                <input type="tel" id="c-phone" placeholder="06xxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label>وصف مختصر</label>
+                <textarea id="c-desc" rows="3" placeholder="أنا حرفي محترف..."></textarea>
+            </div>
+            <button class="btn btn-craftsman" style="width:100%" onclick="saveCraftsman()">نشر البطاقة</button>
+        </div>
+    </div>
 
-<div id="poem"></div>
-<div id="surprise"></div>
+    <!-- 3. صفحة البحث (للزبون) -->
+    <div id="search-view" class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <input type="text" id="search-input" placeholder="ابحث عن مهنة (مثال: نجار)..." style="width: 80%; max-width: 400px;" onkeyup="filterCards()">
+        </div>
+        <div id="cards-container" class="cards-grid">
+            <!-- سيتم ملء البطاقات هنا بالجافاسكريبت -->
+        </div>
+    </div>
 
-<script>
+    <!-- 4. نافذة الشات -->
+    <div id="chat-window" class="chat-modal">
+        <div class="chat-header">
+            <span id="chat-with-name">الحرفي</span>
+            <span class="close-chat" onclick="closeChat()">×</span>
+        </div>
+        <div class="chat-body" id="chat-messages">
+            <div class="message msg-received">مرحباً! كيف يمكنني مساعدتك في مشروعك؟</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="msg-input" placeholder="اكتب رسالتك...">
+            <button onclick="sendMessage()">إرسال</button>
+        </div>
+    </div>
 
-function showPoem(type){
-  const poemBox = document.getElementById("poem");
-  const surpriseBox = document.getElementById("surprise");
-  surpriseBox.style.display = "none";
+    <script>
+        // بيانات افتراضية (للمحاكاة)
+        let craftsmen = [
+            { id: 1, name: "أحمد العلوي", job: "نجار", city: "الدار البيضاء", phone: "0612345678", desc: "صناعة الأثاث العتيق." },
+            { id: 2, name: "فاطمة الزهراء", job: "فخار", city: "فاس", phone: "0698765432", desc: "فخار يدوي تقليدي." },
+            { id: 3, name: "كريم بناني", job: "حداد", city: "مراكش", phone: "0655443322", desc: "أبواب ونوافذ حديدية." }
+        ];
 
-  let text = "";
+        // دالة التنقل بين الصفحات
+        function showView(viewId) {
+            document.querySelectorAll('.container').forEach(el => el.classList.remove('active-view'));
+            document.getElementById(viewId).classList.add('active-view');
+            
+            if(viewId === 'search-view') {
+                renderCards(craftsmen);
+            }
+        }
 
-  if(type === "choco"){
-    text = "أنتِ كالشوكولاته 🍫\nحلاوتك تذوب في قلبي\nوأعشق تفاصيلك كل يوم ❤️";
-  }
+        function showHome() {
+            showView('home-view');
+        }
 
-  if(type === "bear"){
-    text = "كالدبدوب 🧸\nأريد حضنك طول العمر\nفيه الأمان وراحة القلب 💕";
-  }
+        // حفظ بيانات الحرفي
+        function saveCraftsman() {
+            const name = document.getElementById('c-name').value;
+            const job = document.getElementById('c-job').value;
+            const city = document.getElementById('c-city').value;
+            const phone = document.getElementById('c-phone').value;
+            const desc = document.getElementById('c-desc').value;
 
-  if(type === "rose"){
-    text = "يا وردة قلبي 🌹\nأنتِ أجمل من كل الزهور\nوحبك يسكن أعماقي للأبد 💖";
-  }
+            if(!name || !city) {
+                alert("الرجاء ملء البيانات الأساسية");
+                return;
+            }
 
-  poemBox.innerText = text;
-  poemBox.style.display = "block";
-}
+            const newCraftsman = {
+                id: Date.now(),
+                name: name,
+                job: job,
+                city: city,
+                phone: phone,
+                desc: desc
+            };
 
-function showSurprise(){
-  const surpriseBox = document.getElementById("surprise");
-  const poemBox = document.getElementById("poem");
-  poemBox.style.display = "none";
+            craftsmen.push(newCraftsman);
+            alert("تم نشر بطاقتك بنجاح!");
+            showHome();
+        }
 
-  surpriseBox.innerText = "المفاجأة هي... 💍\nأنا أحبك أكثر مما تتخيلين ❤️\nوكل يوم معك هو عيد حب جديد 💖";
-  surpriseBox.style.display = "block";
-}
+        // عرض البطاقات
+        function renderCards(list) {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
 
-/* تأثير القلوب */
-function createHeart(){
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerText = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (15 + Math.random() * 25) + "px";
-  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
-  document.body.appendChild(heart);
+            list.forEach(c => {
+                const card = `
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 style="margin:0; color:var(--secondary)">${c.job}</h3>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">${c.name}</h3>
+                            <p class="card-info">📍 ${c.city}</p>
+                            <p class="card-info">📞 ${c.phone}</p>
+                            <p style="font-size:0.9rem; color:#555;">${c.desc}</p>
+                            <button class="chat-btn" onclick="openChat('${c.name}')">💬 تواصل الآن</button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
 
-  setTimeout(() => {
-    heart.remove();
-  }, 8000);
-}
+        // البحث
+        function filterCards() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filtered = craftsmen.filter(c => c.job.includes(query) || c.name.includes(query));
+            renderCards(filtered);
+        }
 
-setInterval(createHeart, 300);
+        // الشات
+        function openChat(name) {
+            document.getElementById('chat-window').style.display = 'flex';
+            document.getElementById('chat-with-name').innerText = 'تواصل مع: ' + name;
+            document.getElementById('chat-messages').innerHTML = '<div class="message msg-received">مرحباً! كيف يمكنني مساعدتك في مشروعك؟</div>';
+        }
 
-</script>
+        function closeChat() {
+            document.getElementById('chat-window').style.display = 'none';
+        }
 
+        function sendMessage() {
+            const input = document.getElementById('msg-input');
+            const text = input.value;
+            if(!text) return;
+
+            const chatBody = document.getElementById('chat-messages');
+            
+            // رسالة المستخدم
+            chatBody.innerHTML += `<div class="message msg-sent">${text}</div>`;
+            input.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // رد تلقائي وهمي
+            setTimeout(() => {
+                chatBody.innerHTML += `<div class="message msg-received">شكراً لتواصلك! سأرد عليك قريباً.</div>`;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
