@@ -1,13 +1,9 @@
-// حركة خفيفة للشخصية مع الماوس
+// حركة الشخصية مع الماوس (تأثير مرح)
 document.addEventListener('mousemove', (e) => {
     const character = document.querySelector('.character');
-    const x = (window.innerWidth / 2 - e.clientX) / 25;
-    const y = (window.innerHeight / 2 - e.clientY) / 25;
-    
-    character.style.transform = `translate(${x}px, ${y}px)`;
+    const x = (window.innerWidth / 2 - e.clientX) / 30;
+    const y = (window.innerHeight / 2 - e.clientY) / 30;
+    character.style.transform = `translate(${x}px, \( {y}px) rotate( \){x/10}deg)`;
 });
 
-// رسالة ترحيبية عند تحميل الصفحة
-window.onload = () => {
-    console.log("✅ الموقع تحمل بنجاح! الشخصية كتتحرك...");
-};
+console.log("✅ Exposé sur La Comédie chargé avec succès ! 🎭");
