@@ -11,25 +11,53 @@
     </style>
 </head>
 <body>
-    <!-- شخصية مهرج بنت زوينة متحركة -->
-<div class="character">
-    <lottie-player 
-        id="jesterGirl"
-        src="https://assets4.lottiefiles.com/packages/lf20_yf7v6z2z.json" 
-        background="transparent" 
-        speed="0.9" 
-        style="width: 400px; height: 400px;" 
-        loop 
-        autoplay>
-    </lottie-player>
-</div>
+    <!-- Hero Section - ستارة مسرح حمراء + شخصية مهرج بنت -->
+    <header class="hero" id="hero">
+        <div class="theater-curtain"></div>
+        
+        <div class="container">
+            <div class="side left-side">
+                <img src="https://source.unsplash.com/random/400x600/?theater-curtain,red" alt="Rideau théâtre">
+                <img src="https://source.unsplash.com/random/400x600/?comedy-mask" alt="Masque comédie" style="margin-top: 30px;">
+            </div>
+
+            <div class="content">
+                <h1>La Comédie</h1>
+                <p class="subtitle">Un art qui fait rire... et qui fait réfléchir ! 🎭</p>
+                <p class="presenter">Exposé présenté par : <strong>ريدة</strong></p>
+                
+                <!-- الزر اللي كياخدك للفقرة الجاية -->
+                <button onclick="scrollToSection('definition')" class="theater-btn">
+                    بدأ العرض ↓
+                </button>
+            </div>
+
+            <!-- شخصية مهرج بنت زوينة متحركة -->
+            <div class="character">
+                <lottie-player 
+                    id="jesterGirl"
+                    src="https://assets4.lottiefiles.com/packages/lf20_yf7v6z2z.json" 
+                    background="transparent" 
+                    speed="0.85" 
+                    style="width: 420px; height: 420px;" 
+                    loop 
+                    autoplay>
+                </lottie-player>
+            </div>
+
+            <div class="side right-side">
+                <img src="https://source.unsplash.com/random/400x600/?jester,clown" alt="Méhraj">
+                <img src="https://source.unsplash.com/random/400x600/?theater-stage" alt="Scène théâtre" style="margin-top: 30px;">
+            </div>
+        </div>
     </header>
 
+    <!-- الأقسام مع أزرار التنقل -->
     <section class="section" id="definition">
         <div class="container">
             <h2>I. Qu’est-ce que la Comédie ?</h2>
-            <p>La comédie est un genre dramatique qui vise à faire rire le spectateur en mettant en scène les travers, les ridicules et les défauts de l’être humain. Contrairement à la tragédie, elle finit toujours bien (dénouement heureux).</p>
-            <p>Le mot « comédie » vient du grec « komos » (fête villageoise avec chants et danses).</p>
+            <p>La comédie est un genre dramatique qui vise à faire rire le spectateur en mettant en scène les défauts et les ridicules de l’être humain. Elle finit toujours par un dénouement heureux.</p>
+            <button onclick="scrollToSection('histoire')" class="nav-btn">القسم التالي →</button>
         </div>
     </section>
 
@@ -37,39 +65,37 @@
         <div class="container">
             <h2>II. Histoire de la Comédie</h2>
             <ul>
-                <li><strong>Antiquité grecque</strong> (Ve siècle av. J.-C.) : Aristophane, pièces satiriques.</li>
-                <li><strong>Rome</strong> : Plaute et Térence.</li>
-                <li><strong>Moyen Âge</strong> : Farces populaires.</li>
-                <li><strong>Époque classique (XVIIe siècle)</strong> : <strong>Molière</strong> (L’Avare, Le Tartuffe, Le Bourgeois gentilhomme...).</li>
-                <li><strong>XVIIIe siècle</strong> : Beaumarchais (Le Mariage de Figaro).</li>
+                <li><strong>Antiquité</strong> : Aristophane (Grèce)</li>
+                <li><strong>XVIIe siècle</strong> : <strong>Molière</strong> – Le maître de la comédie française</li>
+                <li><strong>XVIIIe siècle</strong> : Beaumarchais</li>
             </ul>
+            <button onclick="scrollToSection('genres')" class="nav-btn">القسم التالي →</button>
         </div>
     </section>
 
     <section class="section" id="genres">
         <div class="container">
-            <h2>III. Les principaux genres de la Comédie</h2>
+            <h2>III. Les genres de la Comédie</h2>
             <div class="grid">
-                <div class="card">Comédie de caractère (ex. L’Avare de Molière)</div>
-                <div class="card">Comédie de mœurs</div>
-                <div class="card">Comédie d’intrigue</div>
+                <div class="card">Comédie de caractère</div>
                 <div class="card">Farce</div>
+                <div class="card">Comédie de mœurs</div>
                 <div class="card">Vaudeville</div>
             </div>
+            <button onclick="scrollToSection('exemples')" class="nav-btn">القسم التالي →</button>
         </div>
     </section>
 
     <section class="section" id="exemples">
         <div class="container">
             <h2>IV. Exemples célèbres</h2>
-            <p>🎭 <strong>Molière</strong> : Le maître incontesté de la comédie française.</p>
-            <p>Exemples : Le Malade imaginaire, Les Fourberies de Scapin, Dom Juan...</p>
+            <p>🎭 <strong>Molière</strong> : L’Avare, Le Tartuffe, Le Bourgeois gentilhomme...</p>
+            <button onclick="scrollToSection('hero')" class="nav-btn">العودة للبداية ↑</button>
         </div>
     </section>
 
     <footer>
-        <p>Exposé sur La Comédie – Réalisé avec ❤️ et GitHub Pages | 2026</p>
-        <p>Merci pour votre attention ! Des questions ? 😄</p>
+        <p>Exposé sur La Comédie – Réalisé avec ❤️ | 2026</p>
     </footer>
 
     <script src="script.js"></script>
