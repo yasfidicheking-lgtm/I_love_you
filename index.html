@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الواعر</title>
+    <title>Exposé : La Comédie</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playfair+Display:wght@700&display=swap');
     </style>
 </head>
 <body>
-    <!-- Hero Section مع الشخصية المتحركة -->
+    <!-- Hero Section مع الشخصية الكوميدية -->
     <header class="hero">
         <div class="container">
             <div class="content">
-                <h1>مرحبا! أنا <span class="highlight">ريدة</span></h1>
-                <p>صانع مواقع ويب + مصمم + عشاق الأنيميشن 🚀</p>
-                <button onclick="alert('شكراً لزيارتك! 😊')">تواصل معي</button>
+                <h1>La Comédie</h1>
+                <p class="subtitle">Un genre qui fait rire... et qui fait réfléchir ! 🎭</p>
+                <p>Exposé présenté par : <strong>ريدة</strong></p>
             </div>
             
-            <!-- الشخصية المتحركة -->
+            <!-- شخصية كوميدية متحركة (تضحك وتتحرك) -->
             <div class="character">
                 <lottie-player 
-                    src="https://assets4.lottiefiles.com/packages/lf20_2v5z2z2z.json" 
+                    src="https://assets4.lottiefiles.com/packages/lf20_yf7v6z2z.json" 
                     background="transparent" 
-                    speed="1" 
-                    style="width: 320px; height: 320px;" 
+                    speed="0.8" 
+                    style="width: 380px; height: 380px;" 
                     loop 
                     autoplay>
                 </lottie-player>
@@ -35,15 +34,51 @@
         </div>
     </header>
 
-    <section class="about">
+    <section class="section" id="definition">
         <div class="container">
-            <h2>عني</h2>
-            <p>هاد الموقع صاوبته بـ HTML/CSS/JS فقط + Lottie للشخصية المتحركة. كلشي مجاني وينشر على GitHub Pages.</p>
+            <h2>I. Qu’est-ce que la Comédie ?</h2>
+            <p>La comédie est un genre dramatique qui vise à faire rire le spectateur en mettant en scène les travers, les ridicules et les défauts de l’être humain. Contrairement à la tragédie, elle finit toujours bien (dénouement heureux).</p>
+            <p>Le mot « comédie » vient du grec « komos » (fête villageoise avec chants et danses).</p>
+        </div>
+    </section>
+
+    <section class="section" id="histoire">
+        <div class="container">
+            <h2>II. Histoire de la Comédie</h2>
+            <ul>
+                <li><strong>Antiquité grecque</strong> (Ve siècle av. J.-C.) : Aristophane, pièces satiriques.</li>
+                <li><strong>Rome</strong> : Plaute et Térence.</li>
+                <li><strong>Moyen Âge</strong> : Farces populaires.</li>
+                <li><strong>Époque classique (XVIIe siècle)</strong> : <strong>Molière</strong> (L’Avare, Le Tartuffe, Le Bourgeois gentilhomme...).</li>
+                <li><strong>XVIIIe siècle</strong> : Beaumarchais (Le Mariage de Figaro).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" id="genres">
+        <div class="container">
+            <h2>III. Les principaux genres de la Comédie</h2>
+            <div class="grid">
+                <div class="card">Comédie de caractère (ex. L’Avare de Molière)</div>
+                <div class="card">Comédie de mœurs</div>
+                <div class="card">Comédie d’intrigue</div>
+                <div class="card">Farce</div>
+                <div class="card">Vaudeville</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="exemples">
+        <div class="container">
+            <h2>IV. Exemples célèbres</h2>
+            <p>🎭 <strong>Molière</strong> : Le maître incontesté de la comédie française.</p>
+            <p>Exemples : Le Malade imaginaire, Les Fourberies de Scapin, Dom Juan...</p>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 موقعي الشخصي - صاوب بـ ❤️ و GitHub</p>
+        <p>Exposé sur La Comédie – Réalisé avec ❤️ et GitHub Pages | 2026</p>
+        <p>Merci pour votre attention ! Des questions ? 😄</p>
     </footer>
 
     <script src="script.js"></script>
