@@ -1,92 +1,86 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Cairo', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    line-height: 1.6;
+    background: #1a1a2e;
+    color: #eee;
+    line-height: 1.7;
+}
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1600x900/?theater-stage') center/cover;
+    display: flex;
+    align-items: center;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.content {
-    flex: 1;
-    min-width: 300px;
+    gap: 40px;
 }
 
 .content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-}
-
-.highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
     color: #ffd700;
 }
 
-.content p {
-    font-size: 1.4rem;
-    margin-bottom: 30px;
-}
-
-button {
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    background: #ffd700;
-    color: #333;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-button:hover {
-    transform: scale(1.1);
-    background: #ffcc00;
+.subtitle {
+    font-size: 1.8rem;
+    margin: 20px 0;
+    color: #ffcc00;
 }
 
 .character {
-    flex: 1;
-    text-align: center;
-    min-width: 300px;
+    flex-shrink: 0;
 }
 
-.about {
+.section {
     padding: 80px 20px;
-    background: rgba(0,0,0,0.2);
+    background: #16213e;
+}
+
+.section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #ffd700;
     text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #0f3460;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    background: #e94560;
 }
 
 footer {
     text-align: center;
-    padding: 30px;
-    background: rgba(0,0,0,0.3);
+    padding: 40px;
+    background: #0a0a1f;
+    font-size: 1.1rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .content h1 {
-        font-size: 2.8rem;
-    }
+    .hero .container { flex-direction: column; text-align: center; }
+    .content h1 { font-size: 3rem; }
 }
